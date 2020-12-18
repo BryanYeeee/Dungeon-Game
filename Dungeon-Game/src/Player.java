@@ -17,12 +17,31 @@ public class Player {
 
     public boolean move(String move, Level level,boolean doMove) {
         try {
+            Tile tempTile = null;
             switch (move) {
                 case "w":
-                    Tile tempTile = level.map[this.x - 1][this.y]; //swapping tiles to move
+                    tempTile = level.map[this.x - 1][this.y]; //swapping tiles to move
                     level.map[this.x - 1][this.y] = level.map[this.x][this.y];
                     level.map[this.x][this.y] = tempTile;
                     this.setLocation(this.x - 1, this.y);
+                    break;
+                case "a":
+                    tempTile = level.map[this.x][this.y-1]; //swapping tiles to move
+                    level.map[this.x][this.y-1] = level.map[this.x][this.y];
+                    level.map[this.x][this.y] = tempTile;
+                    this.setLocation(this.x, this.y-1);
+                    break;
+                case "s":
+                    tempTile = level.map[this.x +1][this.y]; //swapping tiles to move
+                    level.map[this.x + 1][this.y] = level.map[this.x][this.y];
+                    level.map[this.x][this.y] = tempTile;
+                    this.setLocation(this.x + 1, this.y);
+                    break;
+                case "d":
+                    tempTile = level.map[this.x][this.y + 1]; //swapping tiles to move
+                    level.map[this.x][this.y+1] = level.map[this.x][this.y];
+                    level.map[this.x][this.y] = tempTile;
+                    this.setLocation(this.x, this.y+1);
                     break;
 
             }
