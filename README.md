@@ -1,52 +1,5 @@
 # Dungeon-Game
-# Rice is a popular staple food worldwide. This grain is cooked either using a stovetop, a microwave, or in a rice cooker. There are many ways to enjoy rice, such as with other ingredients stirred in, as fried rice, or as a wholesome base to other dishes. Rice is eaten in a variety of ways around the world, including with chopsticks, a spoon, a fork, or with your hands.
-
-Ingredients
-Cooking Rice on a Stovetop
-2 cups (500 ml) of water
-1 cup (180 g) of raw, white rice
-Makes 4 servings.
-
-Cooking Rice in a Microwave
-2 cups (500 ml) of water
-1 cup (180 g) of raw white, basmati, jasmine, or sushi rice
-Makes 4 servings.
-
-Cooking Rice in a Rice Cooker
-1 cup (250 ml) of water
-1 cup (180 g) of raw, white rice
-Makes 4 servings.
-
-Curry Carrot Stir-In for Rice
-¾ cup (40 g) of grated carrot
-2 tbsp (18 g) of raisins
-1 tsp (2 g) of curry powder
-¼ tsp (1.25 g) of kosher salt
-2 cups (372 g) of cooked rice
-Makes 4 servings.
-
-Double Sesame Stir-In for Rice
-2 tsp (10 ml) of dark sesame oil
-1 tsp (2.7 g) of toasted sesame seeds
-¼ tsp (1.25 g) of kosher salt
-2 sliced green onions
-2 cups (372 g) of cooked rice
-Makes 4 servings.
-
-Pine Nut, Parsley and Butter Stir-In for Rice
-2 tbsp (16 g) of toasted pine nuts
-2 tbsp (8 g) of minced, fresh, flat-leaf party
-1 tbsp (14 g) of melted butter
-¼ tsp (1.25 g) of kosher salt
-2 cups (372 g) of cooked rice
-Makes 4 servings.
-
-Fried Rice
-2 eggs
-2 tbsp (20 ml) of vegetable oil
-1 cup (150 g) of frozen carrots and peas
-3 cups (558 g) of leftover rice
-1 cup (140 g) of leftover roast chicken or pork
+# ASDASDASDA KJASKNDE DJE DJABIDKDNSAKJDBAJDBOSJDOSADNJABIDKDNSAKJDBAJDBOSJDOSADNJABIDKDNSAKJDBAJDBOSJDOSADNJABIDKDNSAKJDBAJDBOSJDOSADNJABIDKDNSAKJDBAJDBOSJDOSADNJABIDKDNSAKJDBAJDBOSJDOSADNJABIDKDNSAKJDBAJDBOSJDOSADNJABIDKDNSAKJDBAJDBOSJDOSADNJABIDKDNSAKJDBAJDBOSJDOSADN
 Soy sauce, to taste
 Makes 4 servings.
 
