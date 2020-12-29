@@ -45,14 +45,12 @@ public class Player {
                 } else if(level.map[this.x + movex * i][this.y + movey * i].object instanceof Item && doMove) {
                     ((Item)level.map[this.x + movex * i][this.y + movey * i].object).pickUp(this);
                     level.map[this.x + movex * i][this.y + movey * i] = new Tile("-");
-
-                }
-            }
-            if(doMove) {
-                if(level.map[this.x + movex * Count][this.y + movey * Count].symbol.equals("#")){
+                } else if(level.map[this.x + movex * i][this.y + movey * i].object instanceof Ladder && doMove) {
                     this.atLadder = true;
                     return true;
                 }
+            }
+            if(doMove) {
                 Tile tempTile = level.map[this.x + movex * Count][this.y + movey * Count];
                 //swapping tiles to move
                 level.map[this.x + movex * Count][this.y + movey * Count] = level.map[this.x][this.y];
