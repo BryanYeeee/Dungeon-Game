@@ -42,6 +42,10 @@ public class Player {
             for (int i = 0; i <= Count; i++) {
                 if (level.map[this.x + movex * i][this.y + movey * i].object instanceof Wall) {
                     return false;
+                } else if(level.map[this.x + movex * i][this.y + movey * i].object instanceof Item && doMove) {
+                    ((Item)level.map[this.x + movex * i][this.y + movey * i].object).pickUp(this);
+                    level.map[this.x + movex * i][this.y + movey * i] = new Tile("-");
+
                 }
             }
             if(doMove) {
@@ -50,10 +54,6 @@ public class Player {
                     return true;
                 }
                 Tile tempTile = level.map[this.x + movex * Count][this.y + movey * Count];
-                if(tempTile.object instanceof Item) {
-                    ((Item)tempTile.object).pickUp(this);
-                    tempTile = new Tile("-");
-                }
                 //swapping tiles to move
                 level.map[this.x + movex * Count][this.y + movey * Count] = level.map[this.x][this.y];
                 level.map[this.x][this.y] = tempTile;
