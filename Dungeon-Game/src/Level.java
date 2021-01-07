@@ -1,11 +1,17 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Level {
     Tile[][] map;
     int levelnum;
     int startx;
     int starty;
     String text;
+    ArrayList<Enemy> arlofEnemies = new ArrayList<Enemy>();
 
     public Level(String[][] map, int levelnum, Player person, int playerx, int playery, String text) {
+        List<String> enemyTypes = Arrays.asList("8");//8=Skeleton
         this.text = text;
         this.map = new Tile[map.length][map[0].length];
         this.startx = playerx;
@@ -13,7 +19,11 @@ public class Level {
         this.map[playerx][playery] = new Tile(person);
         for(int i = 0; i < map.length; i++) {
             for(int j = 0; j < map[0].length; j++) {
-                if(!map[i][j].equals("O")){
+                if(enemyTypes.contains(map[i][j])) {
+                    this.map[i][j] = new Tile(map[i][j], i, j);
+                    arlofEnemies.add((Enemy)this.map[i][j].object);
+
+                } else if(!map[i][j].equals("O")){
                     this.map[i][j] = new Tile(map[i][j]);
                 }
             }
