@@ -22,9 +22,10 @@ public class Level {
                 if(enemyTypes.contains(map[i][j])) {
                     this.map[i][j] = new Tile(map[i][j], i, j);
                     arlofEnemies.add((Enemy)this.map[i][j].object);
-
                 } else if(!map[i][j].equals("O")){
                     this.map[i][j] = new Tile(map[i][j]);
+                } else {
+                    this.map[i][j] = new Tile(person);
                 }
             }
         }

@@ -51,13 +51,23 @@ public class Player {
                     this.atLadder = true;
                     return true;
                 } else if (level.map[this.x + movex][this.y + movey].object instanceof Enemy) {
-                    this.fight(((Enemy)level.map[this.x + movex][this.y + movey].object).health, ((Enemy)level.map[this.x + movex][this.y + movey].object).strength);
+                    Enemy victim = ((Enemy)level.map[this.x + movex][this.y + movey].object);
+                    this.fight(victim.health, victim.strength, victim.richness);
+
                     if(this.isAlive) {
                         level.map[this.x + movex][this.y + movey] = new Tile("-");
                     } else {
                         return false;
                     }
 
+                }else if (level.map[this.x + movex][this.y + movey].object instanceof Shop) {
+                    System.out.println("HERERERERERRERERERE");
+                    //
+                    //
+                    //
+                    //
+                    ((Shop)(level.map[this.x + movex][this.y + movey].object)).outputShop();
+                    return true;
                 }
                 Tile tempTile = level.map[this.x + movex][this.y + movey]; //swapping tiles to move
                 level.map[this.x + movex][this.y + movey] = level.map[this.x][this.y];
@@ -71,7 +81,7 @@ public class Player {
         }
     }
 
-    public void fight(int eHealth, int eStrength) {// e=enemy
+    public void fight(int eHealth, int eStrength, int eWorth) {// e=enemy
         Random rand = new Random();
         for(int i = this.health; i >= 0; i=i-(rand.nextInt(5) + eStrength)) {
             System.out.println("== phealth:" + i + " pStrength:" + this.strength + " eHealth:" + eHealth + " eStrength:" + eStrength + " ==");
@@ -83,7 +93,7 @@ public class Player {
             eHealth = eHealth - (rand.nextInt(this.strength) + this.strength);
             if(eHealth <= 0) {
                 this.health = i;
-                this.worth = this.worth + eStrength;
+                this.worth = this.worth + eWorth;
                 return;
             }
         }
