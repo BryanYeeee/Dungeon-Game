@@ -9,9 +9,10 @@ public class Level {
     int starty;
     String text;
     ArrayList<Enemy> arlofEnemies = new ArrayList<Enemy>();
+    ArrayList<Integer> arlofKeys = new ArrayList<Integer>();
 
     public Level(String[][] map, int levelnum, Player person, int playerx, int playery, String text) {
-        List<String> enemyTypes = Arrays.asList("8");//8=Skeleton
+        List<String> enemyTypes = Arrays.asList(" 8 ");//8=Skeleton
         this.text = text;
         this.map = new Tile[map.length][map[0].length];
         this.startx = playerx;
@@ -22,7 +23,12 @@ public class Level {
                 if(enemyTypes.contains(map[i][j])) {
                     this.map[i][j] = new Tile(map[i][j], i, j);
                     arlofEnemies.add((Enemy)this.map[i][j].object);
-                } else if(!map[i][j].equals("O")){
+                } else if(map[i][j].substring(0,1).equals("|")) { //door
+                    this.map[i][j] = new Tile("door", Integer.parseInt(map[i][j].substring(1,2)));
+                } else if(map[i][j].substring(0,1).equals("<")) { //key
+                    this.map[i][j] = new Tile("key", Integer.parseInt(map[i][j].substring(1,2)));
+                    this.arlofKeys.add(Integer.parseInt(map[i][j].substring(1,2)));
+                } else if(!map[i][j].equals(" O ")){
                     this.map[i][j] = new Tile(map[i][j]);
                 } else {
                     this.map[i][j] = new Tile(person);

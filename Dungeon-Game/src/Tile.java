@@ -10,26 +10,26 @@ public class Tile {
     public Tile(String object) {
         this.symbol = object;
         switch (object) {
-            case "-":
+            case " - ":
                 this.object = null;
                 break;
-            case "H":
+            case " H ":
                 this.object = new Wall();
                 break;
-            case "#":
+            case " # ":
                 this.object = new Ladder();
                 break;
-            case "$":
+            case " $ ":
                 this.object = new Coin();
                 break;
-            case "@":
+            case " @ ":
                 this.object = new Health();
                 break;
-            case "!":
+            case " ! ":
                 this.object = new Sword();
                 break;
             case "S1":
-                this.symbol = "S";
+                this.symbol = " S ";
                 this.object = new Shop(Arrays.asList("Strength,3,5", "Health,40,5")); //item, amount, cost
                 break;
             default:
@@ -40,18 +40,30 @@ public class Tile {
     }
 
     public Tile(Player person) {
-        this.symbol = "O";
+        this.symbol = " O ";
         this.object = person;
     }
 
     public Tile(String object, int x, int y){//create enemy
         this.symbol = object;
         switch (object) {
-            case "8": //skeleton
+            case " 8 ": //skeleton
                 this.object = new Enemy(10,50,x,y,rand.nextInt(2) + 3);
                 break;
         }
+    }
 
+    public Tile(String object, int id) {
+        switch (object) {
+            case "door":
+                this.symbol = "|"+id+"|";
+                this.object = new Door(id);
+                break;
+            case "key":
+                this.symbol = "<"+id+">";
+                this.object = new Key(id);
+                break;
+        }
     }
 
 
