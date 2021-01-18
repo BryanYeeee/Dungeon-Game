@@ -5,7 +5,7 @@ public class Game {
 
     public static void main(String args[]) {
         ArrayList<Level> arlofLevels = new ArrayList<Level>();
-        int currentLvl = 2;
+        int currentLvl = 3;//+2
         Scanner sc = new Scanner(System.in);
         Player person = new Player(10,100,0);
 
@@ -43,7 +43,7 @@ public class Game {
                 {"H", "-", "-", "-", "H"},
                 {"H", "O", "-", "-", "H"},
                 {"H", "H", "H", "H", "H"}};
-        arlofLevels.add(new Level(lvlShop, 4, person, 3, 1, "Spend your money on items in the SHOP"));
+        arlofLevels.add(new Level(lvlShop, 5, person, 3, 1, "Spend your money on items in the SHOP"));
 
         // ADD SHOP WITH S EQUAL SHOP KEEPER, SHOP CLASS AND BUY ITEMS
 

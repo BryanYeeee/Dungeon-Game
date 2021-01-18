@@ -30,7 +30,8 @@ public class Tile {
                 break;
             case "S1":
                 this.symbol = "S";
-                this.object = new Shop(Arrays.asList("Strength,10,6", "Health,20,6")); //item, amount, cost
+                this.object = new Shop(Arrays.asList("Strength,3,5", "Health,40,5")); //item, amount, cost
+                break;
             default:
                 this.object = null;
                 break;
