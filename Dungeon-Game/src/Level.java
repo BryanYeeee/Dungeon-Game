@@ -9,7 +9,7 @@ public class Level {
     int starty;
     String text;
     ArrayList<Enemy> arlofEnemies = new ArrayList<Enemy>();
-    ArrayList<Integer> arlofKeys = new ArrayList<Integer>();
+
 
     public Level(String[][] map, int levelnum, Player person, int playerx, int playery, String text) {
         List<String> enemyTypes = Arrays.asList(" 8 ");//8=Skeleton
@@ -27,7 +27,7 @@ public class Level {
                     this.map[i][j] = new Tile("door", Integer.parseInt(map[i][j].substring(1,2)));
                 } else if(map[i][j].substring(0,1).equals("<")) { //key
                     this.map[i][j] = new Tile("key", Integer.parseInt(map[i][j].substring(1,2)));
-                    this.arlofKeys.add(Integer.parseInt(map[i][j].substring(1,2)));
+
                 } else if(!map[i][j].equals(" O ")){
                     this.map[i][j] = new Tile(map[i][j]);
                 } else {

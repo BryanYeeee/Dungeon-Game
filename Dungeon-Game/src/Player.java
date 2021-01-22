@@ -8,7 +8,7 @@ public class Player {
     int y;
     public boolean isAlive = true;
     public boolean atLadder = true;
-    public Inventory inv = new Inventory();
+    public static Inventory inv = new Inventory();
 
     public Player(int strength, int health, int worth){
         this.strength = strength;
@@ -44,30 +44,35 @@ public class Player {
                 return false;
             }
             if(doMove) {
-                if(level.map[this.x + movex][this.y + movey].object instanceof Key) {
-                    ((Item)level.map[this.x + movex][this.y + movey].object).pickUp(this);
-                    level.arlofKeys.remove(Integer.valueOf(((Key) level.map[this.x + movex][this.y + movey].object).id));
+
+                Object thing = level.map[this.x + movex][this.y + movey].object;
+
+                if(thing instanceof Item) {
+
+                    ((Item)thing).pickUp(this);
                     level.map[this.x + movex][this.y + movey] = new Tile(" - ");
 
-                } else if(level.map[this.x + movex][this.y + movey].object instanceof Item) {
-                    ((Item)level.map[this.x + movex][this.y + movey].object).pickUp(this);
-                    level.map[this.x + movex][this.y + movey] = new Tile(" - ");
-                } else if(level.map[this.x + movex][this.y + movey].object instanceof Ladder) {
+                } else if(thing instanceof Ladder) {
+
                     this.atLadder = true;
                     return true;
-                } else if (level.map[this.x + movex][this.y + movey].object instanceof Enemy) {
-                    Enemy victim = ((Enemy)level.map[this.x + movex][this.y + movey].object);
+
+                } else if (thing instanceof Enemy) {
+
+                    Enemy victim = ((Enemy)thing);
                     this.fight(victim.health, victim.strength, victim.richness);
+
                     if(this.isAlive) {
                         level.map[this.x + movex][this.y + movey] = new Tile(" - ");
                     } else {
                         return false;
                     }
-                } else if (level.map[this.x + movex][this.y + movey].object instanceof Shop) {
-                    ((Shop)(level.map[this.x + movex][this.y + movey].object)).outputShop(this);
+
+                } else if (thing instanceof Shop) {
+                    ((Shop)thing).outputShop(this);
                     return true;
-                } else if (level.map[this.x + movex][this.y + movey].object instanceof Door) {
-                    if(!level.arlofKeys.contains(((Door)level.map[this.x + movex][this.y + movey].object).id)) {
+                } else if (thing instanceof Door) {
+                    if(this.inv.items.contains("<"+(((Door)level.map[this.x + movex][this.y + movey].object).id)+">")) {
                         level.map[this.x + movex][this.y + movey] = new Tile(" - ");
                     } else {
                         System.out.println("You need a key");
