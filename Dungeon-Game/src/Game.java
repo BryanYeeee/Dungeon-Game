@@ -5,7 +5,7 @@ public class Game {
 
     public static void main(String args[]) {
         ArrayList<Level> arlofLevels = new ArrayList<Level>();
-        int currentLvl = 3;//+2
+        int currentLvl = 4;//+2
         Scanner sc = new Scanner(System.in);
         Player person = new Player(10,100,0);
 
@@ -54,14 +54,19 @@ public class Game {
                                   {" H ", " H ", " H ", " H ", " H ", " H ", " H ", " H "}};
         arlofLevels.add(new Level(lvlKeyDoor, 6, person, 5, 3, "Use the keys to open the matching door"));
 
-//        String[][] lvlKeyDoor = { {" - ", " - ", " - ", " - ", " - ", " - ", " - "},
-//                {" - ", " - ", " - ", " - ", " - ", " - ", " - "},
-//                {" - ", " - ", " - ", " - ", " - ", " - ", " - "},
-//                {" - ", " - ", " - ", " - ", " - ", " - ", " - "},
-//                {" - ", " - ", " - ", " - ", " - ", " - ", " - "},
-//                {" - ", " - ", " - ", " - ", " - ", " - ", " - "},
-//                {" - ", " - ", " - ", " - ", " - ", " - ", " - "};
-//        arlofLevels.add(new Level(lvlKeyDoor, 6, person, 3, 1, "Spend your money on items in the SHOP"));
+        String[][] lvlPzl1 = {
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+        };
+
+        arlofLevels.add(new Level(lvlKeyDoor, 6, person, 5, 3, "Use the keys to open the matching door"));
 
         while(true) {
             if(!person.isAlive) { //dead
