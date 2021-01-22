@@ -5,7 +5,7 @@ public class Game {
 
     public static void main(String args[]) {
         ArrayList<Level> arlofLevels = new ArrayList<Level>();
-        int currentLvl = 4;//+2
+        int currentLvl = 5;//+2
         Scanner sc = new Scanner(System.in);
         Player person = new Player(10,100,0);
 
@@ -39,7 +39,7 @@ public class Game {
         arlofLevels.add(new Level(lvlSkeleton, 4, person, 0, 0, "Fight The Skeleton! (8)"));
 
         String[][] lvlShop = { {" H ", " H ", " H ", " H ", " H "},
-                {" H ", "S1", " - ", " # ", " H " },
+                {" H ", " S1", " - ", " # ", " H " },
                 {" H ", " - ", " - ", " - ", " H "},
                 {" H ", " O ", " - ", " - ", " H "},
                 {" H ", " H ", " H ", " H ", " H "}};
@@ -50,28 +50,36 @@ public class Game {
                 {" H ", " - ", " - ", " - ", "|2|", " - ", " # ", " H "},
                 {" H ", " - ", " - ", " - ", " H ", " - ", " $ ", " H "},
                 {" H ", "|1|", " H ", " H ", " H ", " H ", " H ", " H "},
-                {" H ", " - ", " - ", " O ", " - ", "<1>", " - ", " H "},
+                {" H ", " - ", " - ", " O ", " H ", " $ ", " $ ", " H "},
+                {" H ", "<1>", " - ", " - ", "|2|", " $ ", " $ ", " H "},
                 {" H ", " H ", " H ", " H ", " H ", " H ", " H ", " H "}};
         arlofLevels.add(new Level(lvlKeyDoor, 6, person, 5, 3, "Use the keys to open the matching door"));
 
         String[][] lvlPzl1 = {
-                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
-                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {" H ", " H ", " H ", " H ", " - ", " H ", " H ", " H ", " H "},
+                {" H ", " # ", " @ ", "|2|", " - ", " - ", " H ", "<3>", " H "},
+                {" H ", " @ ", " @ ", " H ", " - ", " 8 4", " H ", "|2|", " H "},
+                {" H ", " H ", " H ", " H ", "|3|", " H ", " H ", " O ", " H "},
+                {" H ", " 8 ", " - ", " - ", " - ", " - ", "|1|", " - ", " H "},
+                {" H ", " H ", "|1|", " H ", " H ", " H ", " H ", " - ", " H "},
+                {" H ", " - ", " - ", " H ", " $ ", " @ ", " H ", " - ", " H "},
+                {" H ", " 8 2", " - ", "|4|", " @ ", " $ ", " H ", " 8 1", " H "},
+                {" H ", " H ", " H ", " H ", " H ", " H ", " H ", " H ", " H "},
         };
+        arlofLevels.add(new Level(lvlPzl1, 7, person, 3, 7, "Enemies Can Drop Keys"));
 
-        arlofLevels.add(new Level(lvlKeyDoor, 6, person, 5, 3, "Use the keys to open the matching door"));
-
+// ADD FIGHT SYSTEM
+        
         while(true) {
             if(!person.isAlive) { //dead
+                System.out.println("YOU DIED");
                 break;
+//                person.inv.clearAll(); restart levels
+//                currentLvl = -1;
+//                person.setLocation(arlofLevels.get(currentLvl).startx, arlofLevels.get(currentLvl).starty);
+                person.atLadder = false;
             } else if(person.atLadder){ //next level
+                person.inv.clearAll();
                 currentLvl++;
                 person.setLocation(arlofLevels.get(currentLvl).startx, arlofLevels.get(currentLvl).starty);
                 person.atLadder = false;
@@ -80,13 +88,14 @@ public class Game {
             System.out.println("{" + arlofLevels.get(currentLvl).text + "}");
             System.out.println("Level: " + arlofLevels.get(currentLvl).levelnum);
             System.out.println("[Health: " + person.health + "|Strength: " + person.strength + "|Money: " + person.worth + "]");
-            System.out.println("--"+person.inv.items+"--");
+            System.out.println("[-"+person.inv.items+"-]");
 
             arlofLevels.get(currentLvl).outputMap();
             String move = sc.nextLine();
             person.move(move, arlofLevels.get(currentLvl), true);
             System.out.println();
         }
+
 
     }
 }

@@ -51,6 +51,9 @@ public class Tile {
                 this.object = new Enemy(10,50,x,y,rand.nextInt(2) + 3);
                 break;
         }
+        if(object.length() > 3) {
+            ((Enemy)this.object).addKey(Integer.parseInt(object.substring(3,4)));
+        }
     }
 
     public Tile(String object, int id) {

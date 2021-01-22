@@ -4,6 +4,7 @@ public class Enemy {
     int x;
     int y;
     int richness;
+    int keyDrop = 0;
 
     public Enemy(int strength, int health, int x, int y, int richness) {
         this.health = health;
@@ -11,7 +12,12 @@ public class Enemy {
         this.x = x;
         this.y = y;
         this.richness = richness;
-    }//lll
+    }
+
+    public void addKey(int id) {
+        this.keyDrop = id;
+        return;
+    }
 
 
 
