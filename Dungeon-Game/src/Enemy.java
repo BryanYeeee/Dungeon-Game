@@ -11,7 +11,8 @@ public class Enemy {
         this.x = x;
         this.y = y;
         this.richness = richness;
-    }
+    }//lll
+
 
 
 }

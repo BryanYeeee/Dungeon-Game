@@ -50,9 +50,10 @@ public class Game {
                                   {" H ", " - ", " - ", " - ", "|2|", " - ", " # ", " H "},
                                   {" H ", " - ", " - ", " - ", " H ", " - ", " $ ", " H "},
                                   {" H ", "|1|", " H ", " H ", " H ", " H ", " H ", " H "},
-                                  {" H ", " - ", " - ", " O ", " - ", "<1>", " - ", " H "},
+                                  {" H ", " - ", " O ", " - ", "|2|", " $ ", " $ ", " H "},
+                                  {" H ", " - ", " - ", "<1>", " H ", " $ ", " $ ", " H "},
                                   {" H ", " H ", " H ", " H ", " H ", " H ", " H ", " H "}};
-        arlofLevels.add(new Level(lvlKeyDoor, 6, person, 5, 3, "Use the keys to open the matching door"));
+        arlofLevels.add(new Level(lvlKeyDoor, 6, person, 5, 2, "Use the keys <x> to open the matching door |x|"));
 
 //        String[][] lvlKeyDoor = { {" - ", " - ", " - ", " - ", " - ", " - ", " - "},
 //                {" - ", " - ", " - ", " - ", " - ", " - ", " - "},
@@ -62,6 +63,11 @@ public class Game {
 //                {" - ", " - ", " - ", " - ", " - ", " - ", " - "},
 //                {" - ", " - ", " - ", " - ", " - ", " - ", " - "};
 //        arlofLevels.add(new Level(lvlKeyDoor, 6, person, 3, 1, "Spend your money on items in the SHOP"));
+
+        // 0-5 coins lvl 2
+        // 3-5 coins lvl 4 (total 3-10)
+        // 0, -5, -10 coins lvl 5
+        // 0-6 coins lvl 6 (total 3-16)
 
         while(true) {
             if(!person.isAlive) { //dead

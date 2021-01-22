@@ -45,7 +45,7 @@ public class Tile {
     }
 
     public Tile(String object, int x, int y){//create enemy
-        this.symbol = object;
+        this.symbol = object.substring(0,3);
         switch (object) {
             case " 8 ": //skeleton
                 this.object = new Enemy(10,50,x,y,rand.nextInt(2) + 3);
