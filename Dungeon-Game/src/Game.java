@@ -5,69 +5,68 @@ public class Game {
 
     public static void main(String args[]) {
         ArrayList<Level> arlofLevels = new ArrayList<Level>();
-        int currentLvl = 3;//+2
+        int currentLvl = 4;//+2
         Scanner sc = new Scanner(System.in);
         Player person = new Player(10,100,0);
 
         String[][] lvlMove = {  {" - ", " - ", " - ", " H ", " # "},
-                                {" - ", " H ", " - ", " H ", " - "},
-                                {" - ", " H ", " - ", " H ", " - "},
-                                {" - ", " H ", " - ", " H ", " - "},
-                                {" O ", " H ", " - ", " - ", " - "} };
+                {" - ", " H ", " - ", " H ", " - "},
+                {" - ", " H ", " - ", " H ", " - "},
+                {" - ", " H ", " - ", " H ", " - "},
+                {" O ", " H ", " - ", " - ", " - "} };
         arlofLevels.add(new Level(lvlMove, 1, person, 4, 0, "WASD for Movement"));
 
 
         String[][] lvlItems = { {" - ", " $ ", " $ ", " $ ", " - "},
-                                {" - ", " - ", " $ ", " $ ", " - "},
-                                {" O ", " - ", " H ", " H ", " # "},
-                                {" - ", " - ", " @ ", " @ ", " - "},
-                                {" - ", " @ ", " @ ", " @ ", " - "} };
+                {" - ", " - ", " $ ", " $ ", " - "},
+                {" O ", " - ", " H ", " H ", " # "},
+                {" - ", " - ", " @ ", " @ ", " - "},
+                {" - ", " @ ", " @ ", " @ ", " - "} };
         arlofLevels.add(new Level(lvlItems, 2, person, 2, 0, "Pickup Items, $ for Coins, @ for Health"));
 
         String[][] lvlSword = { {" H ", " H ", " # ", " H ", " H "},
-                                {" H ", " H ", " - ", " H ", " H "},
-                                {" H ", " - ", " ! ", " - ", " H "},
-                                {" H ", " - ", " - ", " - ", " H "},
-                                {" H ", " - ", " O ", " - ", " H "} };
+                {" H ", " H ", " - ", " H ", " H "},
+                {" H ", " - ", " ! ", " - ", " H "},
+                {" H ", " - ", " - ", " - ", " H "},
+                {" H ", " - ", " O ", " - ", " H "} };
         arlofLevels.add(new Level(lvlSword, 3, person, 4, 2, "Don't Go Wandering Alone, Take this Sword with you, or I will come with you myself (!)"));
 
         String[][] lvlSkeleton = { {" O ", " - ", " - ", " - ", " - "},
-                                   {" - ", " - ", " - ", " H ", " - "},
-                                   {" H ", " H ", " H ", " H ", " 8 "},
-                                   {" @ ", " @ ", " - ", " - ", " - "},
-                                   {" # ", " @ ", " - ", " - ", " - "}};
+                {" - ", " - ", " - ", " H ", " - "},
+                {" H ", " H ", " H ", " H ", " 8 "},
+                {" @ ", " @ ", " - ", " - ", " - "},
+                {" # ", " @ ", " - ", " - ", " - "}};
         arlofLevels.add(new Level(lvlSkeleton, 4, person, 0, 0, "Fight The Skeleton! (8)"));
 
         String[][] lvlShop = { {" H ", " H ", " H ", " H ", " H "},
-                               {" H ", "S1", " - ", " # ", " H " },
-                               {" H ", " - ", " - ", " - ", " H "},
-                               {" H ", " O ", " - ", " - ", " H "},
-                               {" H ", " H ", " H ", " H ", " H "}};
+                {" H ", "S1", " - ", " # ", " H " },
+                {" H ", " - ", " - ", " - ", " H "},
+                {" H ", " O ", " - ", " - ", " H "},
+                {" H ", " H ", " H ", " H ", " H "}};
         arlofLevels.add(new Level(lvlShop, 5, person, 3, 1, "Spend your money on items in the SHOP"));
 
         String[][] lvlKeyDoor = { {" H ", " H ", " H ", " H ", " H ", " H ", " H ", " H "},
-                                  {" H ", " @ ", "<2>", " @ ", " H ", " - ", " $ ", " H "},
-                                  {" H ", " - ", " - ", " - ", "|2|", " - ", " # ", " H "},
-                                  {" H ", " - ", " - ", " - ", " H ", " - ", " $ ", " H "},
-                                  {" H ", "|1|", " H ", " H ", " H ", " H ", " H ", " H "},
-                                  {" H ", " - ", " O ", " - ", "|2|", " $ ", " $ ", " H "},
-                                  {" H ", " - ", " - ", "<1>", " H ", " $ ", " $ ", " H "},
-                                  {" H ", " H ", " H ", " H ", " H ", " H ", " H ", " H "}};
-        arlofLevels.add(new Level(lvlKeyDoor, 6, person, 5, 2, "Use the keys <x> to open the matching door |x|"));
+                {" H ", " @ ", "<2>", " @ ", " H ", " - ", " $ ", " H "},
+                {" H ", " - ", " - ", " - ", "|2|", " - ", " # ", " H "},
+                {" H ", " - ", " - ", " - ", " H ", " - ", " $ ", " H "},
+                {" H ", "|1|", " H ", " H ", " H ", " H ", " H ", " H "},
+                {" H ", " - ", " - ", " O ", " - ", "<1>", " - ", " H "},
+                {" H ", " H ", " H ", " H ", " H ", " H ", " H ", " H "}};
+        arlofLevels.add(new Level(lvlKeyDoor, 6, person, 5, 3, "Use the keys to open the matching door"));
 
-        String[][] lvlKeyDrop = { {" H ", " H ", " H ", " H ", " H ", " - ", " H "},
-                                  {" H ", " - ", " 8  1", " - ", " H ", " - ", " H "},
-                                  {" H ", " - ", " - ", " - ", " H ", " - ", " H "},
-                                  {" H ", " - ", " - ", " - ", " - ", " O ", " H "},
-                                  {" H ", "<1>", " H ", " H ", " H ", " - ", " H "},
-                                  {" H ", " - ", " - ", " # ", " H ", " - ", " H "},
-                                  {" H ", " H ", " H ", " H ", " H ", " - ", " H "}};
-        arlofLevels.add(new Level(lvlKeyDoor, 7, person, 3, 1, "Spend your money on items in the SHOP"));
+        String[][] lvlPzl1 = {
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+                {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
+        };
 
-        // 0-5 coins lvl 2
-        // 3-5 coins lvl 4 (total 3-10)
-        // 0, -5, -10 coins lvl 5
-        // 0-6 coins lvl 6 (total 3-16)
+        arlofLevels.add(new Level(lvlKeyDoor, 6, person, 5, 3, "Use the keys to open the matching door"));
 
         while(true) {
             if(!person.isAlive) { //dead
