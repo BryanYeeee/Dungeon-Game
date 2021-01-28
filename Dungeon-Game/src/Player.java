@@ -11,7 +11,7 @@ public class Player {
     public boolean atLadder = true;
     public static Inventory inv = new Inventory();
 
-    public Player(int strength, int health, int worth){
+    public Player(int strength, int health, int worth) {
         this.strength = strength;
         this.health = health;
         this.worth = worth;
@@ -44,32 +44,32 @@ public class Player {
             if (level.map[this.x + movex][this.y + movey].object instanceof Wall) {
                 return false;
             }
-            if(doMove) {
+            if (doMove) {
                 Object thing = level.map[this.x + movex][this.y + movey].object;
-                if(thing instanceof Item) {
+                if (thing instanceof Item) {
 
-                    ((Item)thing).pickUp(this);
+                    ((Item) thing).pickUp(this);
                     level.map[this.x + movex][this.y + movey] = new Tile(" - ");
-                } else if(thing instanceof Ladder) {
+                } else if (thing instanceof Ladder) {
 
                     this.atLadder = true;
                     return true;
                 } else if (thing instanceof Enemy) {
 
-                    Enemy victim = ((Enemy)thing);
+                    Enemy victim = ((Enemy) thing);
                     this.fight(victim.health, victim.strength, victim.richness, victim.keyDrop);
-                    if(this.isAlive) {
+                    if (this.isAlive) {
                         level.map[this.x + movex][this.y + movey] = new Tile(" - ");
                     } else {
                         return false;
                     }
                 } else if (thing instanceof Shop) {
 
-                    ((Shop)thing).outputShop(this);
+                    ((Shop) thing).outputShop(this);
                     return true;
                 } else if (thing instanceof Door) {
 
-                    if(this.inv.items.contains("<"+(((Door)level.map[this.x + movex][this.y + movey].object).id)+">")) {
+                    if (this.inv.items.contains("<" + (((Door) level.map[this.x + movex][this.y + movey].object).id) + ">")) {
                         level.map[this.x + movex][this.y + movey] = new Tile(" - ");
                     } else {
                         System.out.println("You need a key");
@@ -90,62 +90,48 @@ public class Player {
 
     public void fight(int eHealth, int eStrength, int eWorth, int eKey) {// e=enemy
         Random rand = new Random();
-<<<<<<< HEAD
-<<<<<<< HEAD
-        while(true) {
+        while (true) {
             eHealth = eHealth - (rand.nextInt(this.strength) + this.strength);
-=======
-=======
->>>>>>> 0f1678132a49ef192506ddaa3bb366ea8f564c02
-        Scanner Scanner = new Scanner(System.in);;
-        while(this.health>0&&eHealth>0){
-            System.out.println("== phealth:" + this.health + " pStrength:" + this.strength + " eHealth:" + eHealth + " eStrength:" + eStrength + " ==");
-            if(this.health <= 0) {
-                this.health = 0;
-                this.isAlive = false;
-                return;
-            }
-            //Your Turn
-            System.out.println("Kill or die");
-            String move = Scanner.nextLine();
-            switch(move){
-                case "a":
-                    eHealth = eHealth - (rand.nextInt(this.strength) + this.strength);
-                    break;
-                case "d":
-
-            }
-<<<<<<< HEAD
->>>>>>> 0f1678132a49ef192506ddaa3bb366ea8f564c02
-=======
->>>>>>> 0f1678132a49ef192506ddaa3bb366ea8f564c02
-            if(eHealth <= 0) {
-                this.worth = this.worth + eWorth;
-                if(eKey > 0) {
-                    this.inv.add("<"+eKey+">");
+            Scanner Scanner = new Scanner(System.in);
+            ;
+            while (this.health > 0 && eHealth > 0) {
+                System.out.println("== phealth:" + this.health + " pStrength:" + this.strength + " eHealth:" + eHealth + " eStrength:" + eStrength + " ==");
+                if (this.health <= 0) {
+                    this.health = 0;
+                    this.isAlive = false;
+                    return;
                 }
-                return;
-            }
-<<<<<<< HEAD
-            this.health = this.health - (rand.nextInt(5) + eStrength);
-            if(this.health <= 0) {
-                this.health = 0;
-                this.isAlive = false;
-                return;
-            }
-<<<<<<< HEAD
-            System.out.println("== phealth:" +  this.health + " pStrength:" + this.strength + " eHealth:" + eHealth + " eStrength:" + eStrength + " ==");
-=======
-            //EMemy Eturn
-            this.health=this.health-(rand.nextInt(5) + eStrength);
+                //Your Turn
+                System.out.println("Kill or die");
+                String move = Scanner.nextLine();
+                switch (move) {
+                    case "a":
+                        eHealth = eHealth - (rand.nextInt(this.strength) + this.strength);
+                        break;
+                    case "d":
 
->>>>>>> 0f1678132a49ef192506ddaa3bb366ea8f564c02
-=======
-            //EMemy Eturn
-            this.health=this.health-(rand.nextInt(5) + eStrength);
+                }
+                if (eHealth <= 0) {
+                    this.worth = this.worth + eWorth;
+                    if (eKey > 0) {
+                        this.inv.add("<" + eKey + ">");
+                    }
+                    return;
+                }
+                this.health = this.health - (rand.nextInt(5) + eStrength);
+                if (this.health <= 0) {
+                    this.health = 0;
+                    this.isAlive = false;
+                    return;
+                }
+                System.out.println("== phealth:" + this.health + " pStrength:" + this.strength + " eHealth:" + eHealth + " eStrength:" + eStrength + " ==");
+                //EMemy Eturn
+                this.health = this.health - (rand.nextInt(5) + eStrength);
+                //EMemy Eturn
+                this.health = this.health - (rand.nextInt(5) + eStrength);
 
->>>>>>> 0f1678132a49ef192506ddaa3bb366ea8f564c02
+            }
+
         }
-
     }
 }
