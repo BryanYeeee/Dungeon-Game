@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class Player {
     int strength;
@@ -93,19 +94,32 @@ public class Player {
 
     public void fight(int eHealth, int eStrength, int eWorth) {// e=enemy
         Random rand = new Random();
-        for(int i = this.health; i > 0; i=i-(rand.nextInt(5) + eStrength)) {
-            System.out.println("== phealth:" + i + " pStrength:" + this.strength + " eHealth:" + eHealth + " eStrength:" + eStrength + " ==");
+        Scanner Scanner = new Scanner(System.in);;
+        while(this.health>0&&eHealth>0){
+            System.out.println("== phealth:" + this.health + " pStrength:" + this.strength + " eHealth:" + eHealth + " eStrength:" + eStrength + " ==");
             if(this.health <= 0) {
                 this.health = 0;
                 this.isAlive = false;
                 return;
             }
-            eHealth = eHealth - (rand.nextInt(this.strength) + this.strength);
+            //Your Turn
+            System.out.println("Kill or die");
+            String move = Scanner.nextLine();
+            switch(move){
+                case "a":
+                    eHealth = eHealth - (rand.nextInt(this.strength) + this.strength);
+                    break;
+                case "d":
+
+            }
             if(eHealth <= 0) {
-                this.health = i;
                 this.worth = this.worth + eWorth;
                 return;
             }
+            //EMemy Eturn
+            this.health=this.health-(rand.nextInt(5) + eStrength);
+
         }
+
     }
 }
