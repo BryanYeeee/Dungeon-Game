@@ -45,11 +45,14 @@ public class Tile {
     }
 
     public Tile(String object, int x, int y){//create enemy
-        this.symbol = object;
-        switch (object) {
+        this.symbol = object.substring(0,3);
+        switch (object.substring(0,3)) {
             case " 8 ": //skeleton
                 this.object = new Enemy(10,50,x,y,rand.nextInt(2) + 3);
                 break;
+        }
+        if(object.length() > 3) {
+            ((Enemy)this.object).addKey(Integer.parseInt(object.substring(3,4)));
         }
     }
 

@@ -14,4 +14,8 @@ public class Inventory {
     public void add(String item){
         this.items.add(item);
     }
+
+    public void clearAll(){
+        this.items.clear();
+    }
 }

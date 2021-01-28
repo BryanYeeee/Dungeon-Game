@@ -5,7 +5,7 @@ public class Key extends Item{
     }
     public boolean pickUp(Player person) {
         System.out.println("KEY " + id + " WAS PICKED UP");
-        person.inv.items.add("<"+id+">");
+        person.inv.add("<"+id+">");
         return true;
     }
 

@@ -44,34 +44,30 @@ public class Player {
                 return false;
             }
             if(doMove) {
-
                 Object thing = level.map[this.x + movex][this.y + movey].object;
-
                 if(thing instanceof Item) {
 
                     ((Item)thing).pickUp(this);
                     level.map[this.x + movex][this.y + movey] = new Tile(" - ");
-
                 } else if(thing instanceof Ladder) {
 
                     this.atLadder = true;
                     return true;
-
                 } else if (thing instanceof Enemy) {
 
                     Enemy victim = ((Enemy)thing);
-                    this.fight(victim.health, victim.strength, victim.richness);
-
+                    this.fight(victim.health, victim.strength, victim.richness, victim.keyDrop);
                     if(this.isAlive) {
                         level.map[this.x + movex][this.y + movey] = new Tile(" - ");
                     } else {
                         return false;
                     }
-
                 } else if (thing instanceof Shop) {
+
                     ((Shop)thing).outputShop(this);
                     return true;
                 } else if (thing instanceof Door) {
+
                     if(this.inv.items.contains("<"+(((Door)level.map[this.x + movex][this.y + movey].object).id)+">")) {
                         level.map[this.x + movex][this.y + movey] = new Tile(" - ");
                     } else {
@@ -91,21 +87,24 @@ public class Player {
         }
     }
 
-    public void fight(int eHealth, int eStrength, int eWorth) {// e=enemy
+    public void fight(int eHealth, int eStrength, int eWorth, int eKey) {// e=enemy
         Random rand = new Random();
-        for(int i = this.health; i > 0; i=i-(rand.nextInt(5) + eStrength)) {
-            System.out.println("== phealth:" + i + " pStrength:" + this.strength + " eHealth:" + eHealth + " eStrength:" + eStrength + " ==");
+        while(true) {
+            eHealth = eHealth - (rand.nextInt(this.strength) + this.strength);
+            if(eHealth <= 0) {
+                this.worth = this.worth + eWorth;
+                if(eKey > 0) {
+                    this.inv.add("<"+eKey+">");
+                }
+                return;
+            }
+            this.health = this.health - (rand.nextInt(5) + eStrength);
             if(this.health <= 0) {
                 this.health = 0;
                 this.isAlive = false;
                 return;
             }
-            eHealth = eHealth - (rand.nextInt(this.strength) + this.strength);
-            if(eHealth <= 0) {
-                this.health = i;
-                this.worth = this.worth + eWorth;
-                return;
-            }
+            System.out.println("== phealth:" +  this.health + " pStrength:" + this.strength + " eHealth:" + eHealth + " eStrength:" + eStrength + " ==");
         }
     }
 }

@@ -20,7 +20,8 @@ public class Level {
         this.map[playerx][playery] = new Tile(person);
         for(int i = 0; i < map.length; i++) {
             for(int j = 0; j < map[0].length; j++) {
-                if(enemyTypes.contains(map[i][j])) {
+//                System.out.println(playerx + " " + playery + " " + i + " " + j);
+                if(enemyTypes.contains(map[i][j].substring(0,3))) {
                     this.map[i][j] = new Tile(map[i][j], i, j);
                     arlofEnemies.add((Enemy)this.map[i][j].object);
                 } else if(map[i][j].substring(0,1).equals("|")) { //door
