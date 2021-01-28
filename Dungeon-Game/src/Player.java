@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class Player {
     int strength;
@@ -89,8 +90,29 @@ public class Player {
 
     public void fight(int eHealth, int eStrength, int eWorth, int eKey) {// e=enemy
         Random rand = new Random();
+<<<<<<< HEAD
         while(true) {
             eHealth = eHealth - (rand.nextInt(this.strength) + this.strength);
+=======
+        Scanner Scanner = new Scanner(System.in);;
+        while(this.health>0&&eHealth>0){
+            System.out.println("== phealth:" + this.health + " pStrength:" + this.strength + " eHealth:" + eHealth + " eStrength:" + eStrength + " ==");
+            if(this.health <= 0) {
+                this.health = 0;
+                this.isAlive = false;
+                return;
+            }
+            //Your Turn
+            System.out.println("Kill or die");
+            String move = Scanner.nextLine();
+            switch(move){
+                case "a":
+                    eHealth = eHealth - (rand.nextInt(this.strength) + this.strength);
+                    break;
+                case "d":
+
+            }
+>>>>>>> 0f1678132a49ef192506ddaa3bb366ea8f564c02
             if(eHealth <= 0) {
                 this.worth = this.worth + eWorth;
                 if(eKey > 0) {
@@ -104,7 +126,14 @@ public class Player {
                 this.isAlive = false;
                 return;
             }
+<<<<<<< HEAD
             System.out.println("== phealth:" +  this.health + " pStrength:" + this.strength + " eHealth:" + eHealth + " eStrength:" + eStrength + " ==");
+=======
+            //EMemy Eturn
+            this.health=this.health-(rand.nextInt(5) + eStrength);
+
+>>>>>>> 0f1678132a49ef192506ddaa3bb366ea8f564c02
         }
+
     }
 }

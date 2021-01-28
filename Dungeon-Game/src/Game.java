@@ -5,7 +5,7 @@ public class Game {
 
     public static void main(String args[]) {
         ArrayList<Level> arlofLevels = new ArrayList<Level>();
-        int currentLvl = 4;//+2
+        int currentLvl = 2;//+2
         Scanner sc = new Scanner(System.in);
         Player person = new Player(10,100,0);
 
