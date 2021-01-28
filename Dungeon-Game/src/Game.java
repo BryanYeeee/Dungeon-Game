@@ -69,15 +69,15 @@ public class Game {
         arlofLevels.add(new Level(lvlPzl1, 7, person, 3, 7, "Enemies Can Drop Keys"));
 
 // ADD FIGHT SYSTEM
-        
+
         while(true) {
             if(!person.isAlive) { //dead
                 System.out.println("YOU DIED");
-                break;
-//                person.inv.clearAll(); restart levels
-//                currentLvl = -1;
-//                person.setLocation(arlofLevels.get(currentLvl).startx, arlofLevels.get(currentLvl).starty);
+                person.inv.clearAll(); restart levels
+                currentLvl = -1;
+                person.setLocation(arlofLevels.get(currentLvl).startx, arlofLevels.get(currentLvl).starty);
                 person.atLadder = false;
+                break;
             } else if(person.atLadder){ //next level
                 person.inv.clearAll();
                 currentLvl++;
