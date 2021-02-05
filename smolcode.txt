@@ -12,9 +12,9 @@ public class newlevel {
           System.out.print("{");
           for(int j=0;j<y;j++){
               if(j+1!=y){
-                System.out.print("\""+"-"+"\",  " );
+                System.out.print("\""+" - "+"\",  " );
               }else{
-                  System.out.print("\""+"-"+"\"");
+                  System.out.print("\""+" - "+"\"");
               }
           }
           System.out.print("},");
