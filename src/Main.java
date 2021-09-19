@@ -144,7 +144,7 @@ public class Main {
 
     public static void saveGame(int index) {
         try {
-            File File = new File("C:\\Users\\halod\\eclipse-workspace\\KNEELAND\\.saves\\save" + index);
+            File File = new File("C:\\Users\\halod\\eclipse-workspace\\KNEELAND\\src\\.saves\\save" + index);
             FileWriter fw = new FileWriter(File);
             BufferedWriter fileWriter = new BufferedWriter(fw);
 
@@ -208,7 +208,7 @@ public class Main {
     }
 
     public static void loadGame(int save) {
-        File File = new File("C:\\Users\\halod\\eclipse-workspace\\KNEELAND\\.saves\\save" + save);
+        File File = new File("C:\\Users\\halod\\eclipse-workspace\\KNEELAND\\src\\.saves\\save" + save);
         Scanner reader;
         try {
             reader = new Scanner(File);

@@ -55,13 +55,13 @@ public class Walls {
 				} catch (Exception e){
 				}
 			}
-		System.out.println(modifier + " "+ x + " " + y);
-		 for(int i = 0; i < level.length; i++) { //rows
-		     for(int j = 0; j < level[0].length; j++) { //collumns
-		         System.out.print("|"+level[i][j] + "|");
-		     }
-		     System.out.println();
-		 }
+//		System.out.println(modifier + " "+ x + " " + y);
+//		 for(int i = 0; i < level.length; i++) { //rows
+//		     for(int j = 0; j < level[0].length; j++) { //collumns
+//		         System.out.print("|"+level[i][j] + "|");
+//		     }
+//		     System.out.println();
+//		 }
 			this.dir = Main.cl.getResource("Icons/WallIcon/"+modifier+this.dir).toString().substring(5);
     }
 }
