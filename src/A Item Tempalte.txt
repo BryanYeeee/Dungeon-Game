@@ -1,0 +1,24 @@
+import java.math.BigDecimal;
+public class Name extends Item {
+    String dir = "NameIcon.png";
+    public Coin() {
+			//this.dir = dir + id + ".png";
+			this.name = "Name";
+			this.toolTip = "tooltip";
+      this.price = 500;
+    }
+    
+    public void pickUp() {
+				Main.person.inv.addItem(this);
+        return;
+    }
+    public void buy(int perbuy){
+        Main.person.worth = Main.person.worth.subtract((new BigDecimal(String.valueOf(price))).multiply(new BigDecimal(String.valueOf(perbuy))));
+
+        Main.person.maxhp += perbuy;
+				
+    }
+    public void use(){
+			int x = 1/0;     
+    }
+}
