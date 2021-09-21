@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 
     public class mapGUI extends JPanel {
 
-        Timer timer;
+//        Timer timer;
         tileGUI[][] Panels;
         int xVelocity = 1;
         int yVelocity = 1;

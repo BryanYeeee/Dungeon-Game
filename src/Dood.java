@@ -1,3 +1,5 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.*;
@@ -7,6 +9,8 @@ import java.awt.*;
 public class Dood {
     public int phase;
     public int enemiesKilled;
+    public int fadeperc = 100;
+    public Timer timer;
     Random rand = new Random();
 
     public Dood() {
@@ -93,5 +97,26 @@ public class Dood {
             Main.arlofLevels.get(Main.currentLvl).map[i][14] = new Tile("-  ", "-", new String[]{""});
         }
         Main.arlofLevels.get(Main.currentLvl).map[3][13] = new Tile("-  ", "/", new String[]{"3"});
+    }
+
+    public void fadeOut(int x, int y) {
+        Main.gui.map.toggleMove(false);//THIS NO WORK
+        Main.boss.fadeperc = 100;
+        this.timer = new Timer(10, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (Main.boss.fadeperc > 0) {
+                    Main.boss.fadeperc--;
+                    Main.gui.map.Panels[x][y].repaint();
+                } else {
+                    Main.arlofLevels.get(Main.currentLvl).map[x][y] = new Tile("-  ", "-", new String[1]);
+                    Main.gui.map.toggleMove(true);
+                    Main.boss.timer.stop();
+                }
+
+            }
+        });
+        this.timer.setCoalesce(true);
+        this.timer.start();
     }
 }

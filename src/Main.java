@@ -91,6 +91,14 @@ public class Main {
         return op.filter(buffImg, null);
     }
 
+    public static BufferedImage imgtoBuff(Image img) {
+        BufferedImage bi = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_RGB);
+        Graphics bg = bi.getGraphics();
+        bg.drawImage(img, 0, 0, null);
+        bg.dispose();
+        return bi;
+    }
+
     public static BufferedImage crop(ImageIcon icon, int x, int y, int width, int height) {
         width = width < 0 ? 0 : width;
         height = height < 0 ? 0 : height;

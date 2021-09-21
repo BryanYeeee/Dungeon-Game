@@ -1,7 +1,10 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.RescaleOp;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
@@ -38,8 +41,16 @@ public class tileGUI extends JPanel {
         if (this.currentTile.object != null) {
             // System.out.println(this.currentTile.dir);
             tileImage = (Main.AutoSize(this.currentTile.dir)).getImage();
-            g2D.drawImage(tileImage, 0, 0, null);
+            switch (this.currentTile.symbol) {
+                case "N":
+                    g2D.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, Main.boss.fadeperc*(0.01f)));
+                    g2D.drawImage(tileImage,0,0,null);
+                default:
+                    g2D.drawImage(tileImage, 0, 0, null);
+                    break;
+            }
         }
+
         Object thing;
         String dirPath = "Icons/NumIcon/number";
         switch (this.currentTile.symbol) {
@@ -67,6 +78,17 @@ public class tileGUI extends JPanel {
                     g2D.drawImage((Main.AutoSize(((Boulder) thing).dir)).getImage(), 0, 0, null);
                 }
                 break;
+        }
+
+        try {
+            if (Main.arlofLevels.get(Main.currentLvl).map[x+1][y].object instanceof Decoration && ((Decoration)Main.arlofLevels.get(Main.currentLvl).map[x+1][y].object).tall) {
+                System.out.println(((Decoration)Main.arlofLevels.get(Main.currentLvl).map[x+1][y].object).dir.replace('1','2').toString());
+                System.out.println(((Decoration)Main.arlofLevels.get(Main.currentLvl).map[x+1][y].object).dir);
+                System.out.println(Main.arlofLevels.get(Main.currentLvl).map[x+1][y].object);
+                g2D.drawImage((Main.AutoSize(((Decoration)Main.arlofLevels.get(Main.currentLvl).map[x+1][y].object).dir.replace('1','2'))).getImage(), 0, 0, null);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
 }
