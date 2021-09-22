@@ -100,11 +100,11 @@ public class Dood {
     }
 
     public void fadeOut(int x, int y) {
-        Main.gui.map.toggleMove(false);//THIS NO WORK
         Main.boss.fadeperc = 100;
         this.timer = new Timer(10, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                Main.gui.map.toggleMove(false);
                 if (Main.boss.fadeperc > 0) {
                     Main.boss.fadeperc--;
                     Main.gui.map.Panels[x][y].repaint();

@@ -61,9 +61,10 @@ public class LevelList {
                 {"H  ","H  ", "-  ", "-  ", "-  ", "H  ", "H  ","-  ", "-  ", "G  ", "-  ","-  ", "-  ","-  ", "-  ",":  ", "H  ", "H  "},
                 {"H  ","H  ", ":  ", "-  ", "-  ", "H  ", "H  ","H  ", "H  ", "H  ", ":  ","-  ", "$  ","$  ", "-  ","-  ", "H  ", "H  "},
                 {"H  ","H  ", "-  ", "-  ", "-  ", "H  ", "H  ","H  ", "H  ", "H  ", "-  ","$  ", "$  ","$  ", "$  ","-  ", "#  ", "H  "},
-                {"H  ","H  ", ";  ", "-  ", ";  ", "H  ", "H  ","H  ", "H  ", "H  ", ";  ","-  ", "$  ","$  ", "-  ",";  ", "H  ", "H  "},
-                {"H  ","H  ", "H  ", "H  ", "H  ", "H  ", "H  ","H  ", "H  ", "H  ", "H  ","H  ", "H  ","H  ", "H  ","H  ", "H  ", "H  "},
-                {"H  ","H  ", "H  ", "H  ", "H  ", "H  ", "H  ","H  ", "H  ", "H  ", "H  ","H  ", "H  ","H  ", "H  ","H  ", "H  ", "H  "} };
+                {"H  ","H  ", ";  ", "-  ", ";  ", "H  ", "H  ","H  ", "H  ", "H  ", ";  ","-  ", "$  ","$  ", "-  ","-  ", "H  ", "H  "},
+                {"H  ","H  ", "H  ", "H  ", "H  ", "H  ", "H  ","H  ", "H  ", "H  ", "-  ","-  ", "-  ","-  ", "-  ",";  ", "H  ", "H  "},
+				{"H  ","H  ", "H  ", "H  ", "H  ", "H  ", "H  ","H  ", "H  ", "H  ", "H  ","H  ", "H  ","H  ", "H  ","H  ", "H  ", "H  "},
+				{"H  ","H  ", "H  ", "H  ", "H  ", "H  ", "H  ","H  ", "H  ", "H  ", "H  ","H  ", "H  ","H  ", "H  ","H  ", "H  ", "H  "} };
         arlofLevels.add(new Level(Lvlstart, 1, 2, 4));
 				//have theSomehitng infront of neelan for him the run away (like hornet)
 				//1. after escaping ur cell, u get beat up and then saved by neelan 2. he says he gonant each u how to FIGHT

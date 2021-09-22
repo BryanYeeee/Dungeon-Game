@@ -88,7 +88,7 @@ public class tileGUI extends JPanel {
                 g2D.drawImage((Main.AutoSize(((Decoration)Main.arlofLevels.get(Main.currentLvl).map[x+1][y].object).dir.replace('1','2'))).getImage(), 0, 0, null);
             }
         } catch (Exception e){
-            e.printStackTrace();
+//            e.printStackTrace();
         }
     }
 }

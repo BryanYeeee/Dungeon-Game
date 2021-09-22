@@ -111,7 +111,6 @@ public class InpList extends JPanel {
         try {
             if (Bossibility.DoodMoe && Main.boss.phase >= 3) {
                 RescaleOp ropR = new RescaleOp(new float[]{1f, 1f, 1f, 1 - this.fadingperc * 0.01f}, new float[4], null);
-                g2D.drawImage(ImageIO.read(new File(Main.cl.getResource("Icons/InpTilesIcon/GlassesL.png").toString().substring(5))), rop, 0, 0);
                 g2D.drawImage(ImageIO.read(new File(Main.cl.getResource("Icons/InpTilesIcon/GlassesR.png").toString().substring(5))), ropR, 400, 0);
             } else {
                 g2D.drawImage(ImageIO.read(new File(Main.cl.getResource("Icons/InpTilesIcon/Glasses.png").toString().substring(5))), rop, 0, 0);
