@@ -61,7 +61,7 @@ shopGUI(Shop curShop) {
   this.add(namexperbuy,Integer.valueOf(1));
 
   JLabel backIMG = new JLabel();
-  backIMG.setIcon(Main.setImageSize(Main.cl.getResource("Icons/ShopIcon/shopideas.png").toString().substring(5), 640,896));
+  backIMG.setIcon(Main.setImageSize(Main.cl.getResource("Icons/ShopIcon/shopideas.png").toString().substring(5),896, 640));
   backIMG.setBounds(0,0,896,640);
   this.add(backIMG, Integer.valueOf(0));
 
@@ -83,7 +83,7 @@ shopGUI(Shop curShop) {
 
     JLayeredPane temp = new JLayeredPane();
     temp.setPreferredSize(new Dimension(160,56));
-    JLabel priceIMG = new JLabel(Main.setImageSize(Main.cl.getResource("Icons/ShopIcon/moneyshotsmall.png").toString().substring(5),56,160));
+    JLabel priceIMG = new JLabel(Main.setImageSize(Main.cl.getResource("Icons/ShopIcon/moneyshotsmall.png").toString().substring(5),160,56));
     priceIMG.setBounds(0,0,160,56);
     temp.add(priceIMG, Integer.valueOf(0));
     JLabel number = new JLabel(String.valueOf(item.price));

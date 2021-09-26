@@ -16,7 +16,7 @@ public class saveGUI extends JPanel{
     this.setBackground(Color.CYAN);
     this.setLayout(null);
 
-    backIMG = new JLabel(Main.setImageSize(Main.cl.getResource("Icons/saveGUI.png").toString().substring(5),640,896));
+    backIMG = new JLabel(Main.setImageSize(Main.cl.getResource("Icons/saveGUI.png").toString().substring(5),896,640));
     backIMG.setBounds(0,0,896,640);
     this.add(backIMG);
 

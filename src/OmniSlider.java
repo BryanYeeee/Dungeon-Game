@@ -15,7 +15,7 @@ public class OmniSlider {
     }
     public void eachslide(int movex, int movey){
 
-      if(Main.person.move(movex, movey, Main.arlofLevels.get(Main.currentLvl), false)){
+      if(Main.person.move(movex, movey, Main.arlofLevels.get(Main.currentLvl))){
             Main.gui.map.toggleMove(false);
 						System.out.println(Main.person.x + " " + Main.person.y);
             //sliding = false;
@@ -32,7 +32,7 @@ public class OmniSlider {
                     } else {
                         timer.stop();
                         counter = 0;
-                        Main.person.move(movex, movey, Main.arlofLevels.get(Main.currentLvl), true);
+                        Main.person.move(movex, movey, Main.arlofLevels.get(Main.currentLvl));
                         Main.gui.map.x = Main.person.x*100;
                         Main.gui.map.y = Main.person.y*100;
                         Main.gui.map.repaint();

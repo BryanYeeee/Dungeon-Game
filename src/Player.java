@@ -68,8 +68,9 @@ public class Player {
         return;
     }
 
-    public boolean move(int movex, int movey, Level level, boolean doMove) {
+    public boolean move(int movex, int movey, Level level) {
         try {
+            System.out.println("DEWTED" + level.map[this.x + movex][this.y + movey].symbol);
             if (!Main.gui.godmode) {//CHANGE AFTER
                 Object thing = level.map[this.x + movex][this.y + movey].object;
                 switch (level.map[this.x + movex][this.y + movey].symbol) {
@@ -94,13 +95,13 @@ public class Player {
                             return false;
                         }
                     case "#":
-                        if (doMove) {
-                            ((Ladder) thing).nextLvl();
-                        }
+
+                        ((Ladder) thing).nextLvl();
+
                         return true;////////////////////////
 
                     case "N":
-                        if(Main.boss.phase == 0) {
+                        if (Main.boss.phase == 0) {
                             break;
                         }
                     case "B":
@@ -160,46 +161,44 @@ public class Player {
                         }
                         break;
                     case "G":
-                        if (doMove) {
-                            System.out.println("I MPOVEDS A BOULDEr");
+                        System.out.println("I MPOVEDS A BOULDEr");
+                        if (((Boulder) thing).create(level, movex, movey)) {
                             return ((Boulder) thing).push(level, movex, movey);
-                        } else {
-                            return ((Boulder) thing).create(level, movex, movey);
                         }
+                        return false;
                     case "L":
-                        ((Switch) thing).use();
+                        level.outputMap();
+                        ((Switch)thing).use();
                         System.out.println("USED SWITCH");
                         return false;//////////////////////////
 
                     case "U":
                         if (!(((Teleporter) thing).x == this.x && ((Teleporter) thing).y == this.y)) {
-                            if (doMove) {
-                                // level.map[((Teleporter)thing).x][((Teleporter)thing).y] = level.map[this.x][this.y];
-                                level.map[this.x][this.y] = new Tile("-  ", "-", new String[1]);
-                                this.setLocation(((Teleporter) thing).x, ((Teleporter) thing).y);
-                                Main.gui.map.x = Main.person.x * 100;
-                                Main.gui.map.y = Main.person.y * 100;
-                                Main.gui.scrollToPlayer();
-                                Main.gui.map.repaint();
-                            }
+
+                            // level.map[((Teleporter)thing).x][((Teleporter)thing).y] = level.map[this.x][this.y];
+                            level.map[this.x][this.y] = new Tile("-  ", "-", new String[1]);
+                            this.setLocation(((Teleporter) thing).x, ((Teleporter) thing).y);
+                            Main.gui.map.x = Main.person.x * 100;
+                            Main.gui.map.y = Main.person.y * 100;
+                            Main.gui.scrollToPlayer();
+                            Main.gui.map.repaint();
+
                             return true;
                         }
                         return false;////////////////////////////////////
 
                     case "V":
-                        if (!doMove) {
-                            Main.gui.map.toggleMove(false);
-                            ((Slider) thing).slide(movex, movey);
-                            return false;
-                        }
-                        return true;///////////////////////////////////
+
+                        ActuallyMove(movex, movey);
+                        ((Slider) thing).slide();
+                        return false;/////////////////////
 
                     case "+":
-                        if (!doMove) {
-                            Main.gui.map.toggleMove(false);
-                            ((OmniSlider) thing).slide(movex, movey, movex, movey);
-                            return false;
-                        }
+
+                        Main.gui.map.toggleMove(false);
+                        ((OmniSlider) thing).slide(movex, movey, movex, movey);
+
+
                         return true;//////////////////////////////////////////
 
                     case "=":
@@ -218,18 +217,18 @@ public class Player {
                         return false;
 
                     case "0":
-                        if (doMove) {
-                            ((Portal) thing).reset();
-                        }
+
+                        ((Portal) thing).reset();
+
                         return true;
                     case "Y":
-                        if (doMove) {
-                            this.setLocation(Main.arlofLevels.get(Main.currentLvl).startx, Main.arlofLevels.get(Main.currentLvl).starty);
-                            Main.gui.map.x = Main.person.x * 100;
-                            Main.gui.map.y = Main.person.y * 100;
-                            Main.gui.scrollToPlayer();
-                            Main.gui.map.repaint();
-                        }
+
+                        this.setLocation(Main.arlofLevels.get(Main.currentLvl).startx, Main.arlofLevels.get(Main.currentLvl).starty);
+                        Main.gui.map.x = Main.person.x * 100;
+                        Main.gui.map.y = Main.person.y * 100;
+                        Main.gui.scrollToPlayer();
+                        Main.gui.map.repaint();
+
                         return true;
                     case "7":
                         Main.gui.saveScene = new saveGUI();
@@ -240,14 +239,18 @@ public class Player {
                         ((theSomething) thing).doSomething();
                         level.map[this.x + movex][this.y + movey] = new Tile("-  ", "-", new String[1]);
                         return true;
+                    case "T":
+                        ((Npc) thing).startDiag();
+                        return false;
 
                 }
             }
 
-            if (doMove) {
-                //swapTiles(movex,movey,level);
-                ActuallyMove(movex, movey);
-            }
+
+            //swapTiles(movex,movey,level);
+            Main.gui.ActuallyGUI(movex, movey, false);
+            ActuallyMove(movex, movey);
+
             return true;
         } catch (ArrayIndexOutOfBoundsException | NumberFormatException | StringIndexOutOfBoundsException e) {
             System.out.println("Error in Move: " + e);

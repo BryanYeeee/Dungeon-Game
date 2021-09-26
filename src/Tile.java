@@ -38,6 +38,10 @@ public class Tile {
                 this.object = new Decoration(object, params[1].equals(" ")?params[0]:String.join("",params));
                 this.dir = ((Decoration) this.object).dir;
                 break;
+            case "T":
+                this.object = new Npc(Integer.valueOf(params[0]));
+                this.dir = ((Npc)this.object).dir;
+                break;
             case "H":
                 // case " ": < WHY DOES THIS EXIST??? no fking clue
                 int x = 1 / 0;

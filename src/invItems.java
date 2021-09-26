@@ -28,7 +28,7 @@ public class invItems extends Screen{
 		this.pager = makeButton(this.pager, true);
 		this.pagel = makeButton(this.pagel, false);
 
-		this.backIMG.setIcon(Main.setImageSize(Main.cl.getResource("Icons/InventoryIcon/Inv/ItemBGl.png").toString().substring(5),384,640));
+		this.backIMG.setIcon(Main.setImageSize(Main.cl.getResource("Icons/InventoryIcon/Inv/ItemBGl.png").toString().substring(5),640,384));
 		this.backIMG.setBounds(0,0,640,384);
 		this.add(backIMG, Integer.valueOf(0));
 
@@ -48,7 +48,7 @@ public class invItems extends Screen{
 		this.backIMG.setIcon(Main.setImageSize(Main.cl.getResource("Icons/InventoryIcon/Inv/" +
 			(page==0?"ItemBGl.png":
 			(page+10==Main.person.inv.invCap?"ItemBGr.png":
-			"ItemBGm.png"))).toString().substring(5),384,640));
+			"ItemBGm.png"))).toString().substring(5),640,384));
 
 		this.makeSlots();
 		this.BGPanel.add(this.pager);

@@ -36,7 +36,7 @@ public class invSettings extends Screen{
 		this.BGPanel.setBounds(0,0,640,384);
 		this.add(this.BGPanel, Integer.valueOf(1));
 
-    this.backIMG.setIcon(Main.setImageSize(Main.cl.getResource("Icons/InventoryIcon/Settings/SettBG.png").toString().substring(5),384,640));
+    this.backIMG.setIcon(Main.setImageSize(Main.cl.getResource("Icons/InventoryIcon/Settings/SettBG.png").toString().substring(5),640,384));
 		this.backIMG.setBounds(0,0,640,384);
 		this.add(backIMG, Integer.valueOf(0));
 
