@@ -200,8 +200,7 @@ public class GUI {
                     Main.gui.map.toggleMove(true);
                     if (Main.gui.map.curBould != null) {
                         // Main.arlofLevels.get(Main.currentLvl).map[Main.person.x+movex*2][Main.person.y+movey*2].dir.replaceAll(".png", "");
-                        // Main.arlofLevels.get(Main.currentLvl).map[Main.person.x+movex*2][Main.person.y+movey*2].dir = Main.gui.map.curBould.done ?
-                        // Main.gui.map.curBould.dir+"Done.png" : Main.gui.map.curBould.dir+".png";
+                        Main.arlofLevels.get(Main.currentLvl).map[Main.person.x+movex*2][Main.person.y+movey*2].dir = Main.gui.map.curBould.killable ? Main.cl.getResource("Icons/TileIcon/kBoulderIcon.png").toString().substring(5) : Main.cl.getResource("Icons/TileIcon/BoulderIcon.png").toString().substring(5);
 
                         Main.gui.map.curBould = null;
                         Main.gui.map.repaint();

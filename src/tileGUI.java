@@ -40,6 +40,7 @@ public class tileGUI extends JPanel {
 
         if (this.currentTile.object != null) {
             // System.out.println(this.currentTile.dir);
+            System.out.println(this.currentTile.dir);
             tileImage = (Main.AutoSize(this.currentTile.dir)).getImage();
             switch (this.currentTile.symbol) {
                 case "N":

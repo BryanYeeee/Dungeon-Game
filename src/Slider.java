@@ -33,7 +33,7 @@ public class Slider {
     public void slide() {
 
         System.out.println("SLIDE");
-        Main.person.move(this.movex, this.movey,Main.currentLvl);
+        Main.person.move(this.movex, this.movey,Main.arlofLevels.get(Main.currentLvl));
 
     }
 

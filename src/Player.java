@@ -104,7 +104,15 @@ public class Player {
                         if (Main.boss.phase == 0) {
                             break;
                         }
-                    case "B":
+                    case "G":
+                        System.out.println("I MPOVEDS A BOULDEr");
+                        if (!((Boulder) thing).killable || Main.person.boulPush) {
+                            if (((Boulder) thing).create(level, movex, movey)) {
+                                return ((Boulder) thing).push(level, movex, movey);
+                            }
+                            return false;
+                        }
+//                    case "B":
                     case "F":
                     case "E":
                     case "8":
@@ -117,7 +125,7 @@ public class Player {
                     case "C":
                     case "?":
                         Enemy victim;
-                        if (level.map[this.x + movex][this.y + movey].symbol.equals("B")) {
+                        if (level.map[this.x + movex][this.y + movey].symbol.equals("G")) {
                             victim = new Enemy("Rock");
                             System.out.println("BOULDER BBBBBBBBBBBBBBBBBBB");
                             ((Boulder) thing).fight(level, movex, movey);
@@ -160,15 +168,9 @@ public class Player {
                             return false;
                         }
                         break;
-                    case "G":
-                        System.out.println("I MPOVEDS A BOULDEr");
-                        if (((Boulder) thing).create(level, movex, movey)) {
-                            return ((Boulder) thing).push(level, movex, movey);
-                        }
-                        return false;
                     case "L":
                         level.outputMap();
-                        ((Switch)thing).use();
+                        ((Switch) thing).use();
                         System.out.println("USED SWITCH");
                         return false;//////////////////////////
 
