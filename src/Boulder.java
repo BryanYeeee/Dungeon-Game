@@ -33,10 +33,10 @@ public class Boulder {
         }
         if (!Main.person.boulPush) {
             System.out.println("KILLEABLE " + this.killable);
-            if (!this.killable) {
-                return false;
+            if (this.killable) {
+                level.map[Main.person.x + movex][Main.person.y + movey].symbol = "B";
             }
-            level.map[Main.person.x + movex][Main.person.y + movey].symbol = "B";
+            return false;
         } else if ((level.map[Main.person.x + movex * 2][Main.person.y + movey * 2].object != null && !(level.map[Main.person.x + movex * 2][Main.person.y + movey * 2].object instanceof Plate))) {
             return false;
         } else {

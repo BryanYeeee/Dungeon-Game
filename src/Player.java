@@ -165,9 +165,10 @@ public class Player {
                         if (((Boulder) thing).create(level, movex, movey)) {
                             return ((Boulder) thing).push(level, movex, movey);
                         }
+                        return false;
                     case "L":
-                        level.outputMap();  
-                        ((Switch) thing).use();
+                        level.outputMap();
+                        ((Switch)thing).use();
                         System.out.println("USED SWITCH");
                         return false;//////////////////////////
 
