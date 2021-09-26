@@ -25,7 +25,7 @@ public class invBest extends Screen{
 		this.add(this.BGPanel, Integer.valueOf(1));
 
     JLabel backIMG = new JLabel();
-		backIMG.setIcon(Main.setImageSize(Main.cl.getResource("Icons/InventoryIcon/Bestiary/BestBG.png").toString().substring(5), 384,640));
+		backIMG.setIcon(Main.setImageSize(Main.cl.getResource("Icons/InventoryIcon/Bestiary/BestBG.png").toString().substring(5), 640,384));
 		backIMG.setBounds(0,0,640,384);
 		this.add(backIMG, Integer.valueOf(0));
 

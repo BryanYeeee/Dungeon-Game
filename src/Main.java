@@ -115,7 +115,7 @@ public class Main {
     }
 
     public static ImageIcon setImageSize(String dir, int width, int height) {
-        return new ImageIcon(new ImageIcon(dir).getImage().getScaledInstance(height, width, java.awt.Image.SCALE_SMOOTH));
+        return new ImageIcon(new ImageIcon(dir).getImage().getScaledInstance(width, height, java.awt.Image.SCALE_SMOOTH));
     }
 
     public static ImageIcon AutoSize(String dir) {

@@ -36,7 +36,7 @@ public class LevelList {
                  {"H  ", "H  ", ":  ", "_1 ", "G  ","P  ","-  ",":  ","H  ","H  "},
                  {"H  ", "H  ", "H  ", "H  ", "H  ","H  ","H  ","H  ","H  ","H  "},
                  {"H  ", "H  ", "H  ", "H  ", "H  ","H  ","H  ","H  ","H  ","H  "}};
-         arlofLevels.add(new Level(lvlidk, 1, 2, 3));
+         arlofLevels.add(new Level(lvlidk, 1, 3, 2));
 
         String[][] Lvlstart = {
                 //{"H  ",  "H  ",  "H  ",  "H  ",  "H  ",  "H  ",  "H  ",  "H  ",  "H  ",  "H  ",  "H  ",  "H  ",  "H  "},

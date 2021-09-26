@@ -53,7 +53,7 @@ public class invMenuBar extends JPanel{
 
 		super.paint(g); // paint background
 		Graphics2D g2D = (Graphics2D) g;
-		g2D.drawImage(Main.setImageSize(Main.gui.invScene.menuDir, 80, 640).getImage(),0,0,null);
+		g2D.drawImage(Main.setImageSize(Main.gui.invScene.menuDir, 640, 80).getImage(),0,0,null);
   
   }
 }

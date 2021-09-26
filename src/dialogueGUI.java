@@ -8,7 +8,7 @@ public class dialogueGUI extends JLayeredPane{
         this.setLayout(null);
         this.setBounds(0,512,896,128);
         JLabel backIMG = new JLabel();
-        backIMG.setIcon(Main.setImageSize(Main.cl.getResource("Icons/diagBG.png").toString().substring(5), 128,896));
+        backIMG.setIcon(Main.setImageSize(Main.cl.getResource("Icons/diagBG.png").toString().substring(5), 896,128));
         backIMG.setBounds(0,0,896,128);
         this.add(backIMG, Integer.valueOf(0));//
     }

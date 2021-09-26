@@ -37,7 +37,7 @@ public class GUI {
     public GUI() { //LAYERED PANE NO WORK WHEN BORDERLAYOUT WEST
         this.frame = new JFrame("TRAPINELANBASMET");
         System.out.println("CRETaD ED A NEW FRAME");
-        this.frame.setSize(new Dimension(909, 670));//896, 640
+        this.frame.setSize(909, 670);//896, 640
         System.out.println(this.frame.getSize());
     }
 
@@ -94,7 +94,6 @@ public class GUI {
         Main.gui.frame.validate();
         Main.gui.frame.repaint();
 
-
     }
 
     public void changeScreen(String screen) {
@@ -145,6 +144,9 @@ public class GUI {
 
     public static void updateBar() {
         Main.gui.scrollBar = new JScrollPane(Main.gui.map);//PUT THIS BACK ONE DAY
+        Main.gui.scrollBar.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+        Main.gui.scrollBar.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        Main.gui.scrollBar.setBorder(null);
         Main.gui.gamePanel.removeAll();
         Main.gui.gamePanel.setLayout(null);
 

@@ -14,8 +14,8 @@ public class buyButton extends JButton{
   public int quantity;
   BigDecimal total;
 
-  public ImageIcon buttonUp = Main.setImageSize(Main.cl.getResource("Icons/ShopIcon/button.png").toString().substring(5),152,160);
-  public ImageIcon buttonDown = Main.setImageSize(Main.cl.getResource("Icons/ShopIcon/buttonpress.png").toString().substring(5),152,160);
+  public ImageIcon buttonUp = Main.setImageSize(Main.cl.getResource("Icons/ShopIcon/button.png").toString().substring(5),160,152);
+  public ImageIcon buttonDown = Main.setImageSize(Main.cl.getResource("Icons/ShopIcon/buttonpress.png").toString().substring(5),160,152);
   public ImageIcon buttonImage = buttonUp;
   int itemx = 16;
   int itemy = 0;
