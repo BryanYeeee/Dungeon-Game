@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Iterator;
 import javax.imageio.ImageIO;
 import javax.sound.sampled.*;
-
+//a
 public class Main { // A
 
     public static Player person;
