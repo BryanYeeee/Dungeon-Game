@@ -240,6 +240,9 @@ public class Player {
                         ((theSomething) thing).doSomething();
                         level.map[this.x + movex][this.y + movey] = new Tile("-  ", "-", new String[1]);
                         return true;
+                    case "T":
+                        ((Npc)thing).startDiag();
+                        return false;
 
                 }
             }
