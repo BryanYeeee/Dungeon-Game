@@ -21,8 +21,8 @@ import java.util.Iterator;
 import javax.imageio.ImageIO;
 import javax.sound.sampled.*;
 
-public class Main { // A
-// b
+public class Main {
+
     public static Player person;
     public static Dood boss;
     public static int currentLvl;
@@ -32,7 +32,7 @@ public class Main { // A
     public static Font endlessbattle;
     public static ImageIcon slidethumb;
     public static ClassLoader cl = Main.class.getClassLoader();
-// a
+
     public static void main(String args[]) {
         cl = Main.class.getClassLoader();
         slidethumb = Auto4Size(cl.getResource("Icons/InventoryIcon/Settings/SliderThumb.png").toString().substring(5));

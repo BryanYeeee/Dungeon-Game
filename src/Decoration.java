@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Decoration {
-    ArrayList<String> arlofnoPasDirs = new ArrayList<>(Arrays.asList("Pots", "Bed1", "Bed2", "Toilet1", "Drawer1"));
+    ArrayList<String> arlofnoPasDirs = new ArrayList<>(Arrays.asList("Pots", "Bed1", "Bed2", "Toilet1", "Drawer1", "door", "Bars"));
     ArrayList<String> noPasRand = new ArrayList<>(Arrays.asList("Pots"));
 
     ArrayList<String> tallDirs = new ArrayList<>(Arrays.asList("Drawer1", "Toilet1"));
