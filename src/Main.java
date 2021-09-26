@@ -32,7 +32,7 @@ public class Main { // A
     public static Font endlessbattle;
     public static ImageIcon slidethumb;
     public static ClassLoader cl = Main.class.getClassLoader();
-// b
+//
     public static void main(String args[]) {
         cl = Main.class.getClassLoader();
         slidethumb = Auto4Size(cl.getResource("Icons/InventoryIcon/Settings/SliderThumb.png").toString().substring(5));
