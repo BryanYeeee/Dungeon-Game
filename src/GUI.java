@@ -38,6 +38,7 @@ public class GUI {
         this.frame = new JFrame("TRAPINELANBASMET");
         System.out.println("CRETaD ED A NEW FRAME");
         this.frame.setSize(909, 670);//896, 640
+        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         System.out.println(this.frame.getSize());
     }
 
@@ -165,7 +166,7 @@ public class GUI {
 
     int counter;
 
-    public void ActuallyGUI(int movex, int movey) {
+    public void ActuallyGUI(int movex, int movey, boolean constant) {
         System.out.println(this.frame.getSize());
 
         Main.gui.map.toggleMove(false);
@@ -197,7 +198,6 @@ public class GUI {
                     timer.stop();
                     counter = 0;
                     Main.gui.map.toggleMove(true);
-                    Main.person.move(movex, movey, Main.arlofLevels.get(Main.currentLvl), true);
                     if (Main.gui.map.curBould != null) {
                         // Main.arlofLevels.get(Main.currentLvl).map[Main.person.x+movex*2][Main.person.y+movey*2].dir.replaceAll(".png", "");
                         // Main.arlofLevels.get(Main.currentLvl).map[Main.person.x+movex*2][Main.person.y+movey*2].dir = Main.gui.map.curBould.done ?
@@ -209,7 +209,7 @@ public class GUI {
                         Main.gui.map.x = Main.person.x * 128;
                         Main.gui.map.y = Main.person.y * 128;
                     }
-                    System.out.println("move back on");
+
                     Main.gui.map.repaint();
                     Main.gui.map.updateMap();
                     Main.gui.scrollToPlayer();
