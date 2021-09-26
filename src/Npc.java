@@ -8,13 +8,19 @@ public class Npc {
     ));
     int index;
     String[] dialogue;
+    String dir;
     public Npc(int index){
         this.index = index;
         this.dialogue = npcText.get(index);
     }
 
     public void startDiag(){
-//        Main.gui.diagScene.startDiag(this.dialogue);
+        Main.gui.diagScene = new dialogueGUI(this);
+        switch(this.index){
+            case 1:
+                break;
+        }
+        Main.gui.diagScene.startDiag(Main.gui.diagScene);
     }
 
     public void endDiag(){
