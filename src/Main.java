@@ -21,7 +21,7 @@ import java.util.Iterator;
 import javax.imageio.ImageIO;
 import javax.sound.sampled.*;
 
-public class Main { // Q
+public class Main { // W
 
     public static Player person;
     public static Dood boss;
