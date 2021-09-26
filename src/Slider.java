@@ -33,7 +33,7 @@ public class Slider {
     public void slide() {
 
         System.out.println("SLIDE");
-        Main.gui.ActuallyGUI(this.movex, this.movey,true);
+        Main.person.move(this.movex, this.movey,Main.currentLvl);
 
     }
 
