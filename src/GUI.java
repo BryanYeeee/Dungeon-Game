@@ -9,7 +9,7 @@ import javax.swing.Timer;
 import java.math.BigDecimal;
 
 
-public class GUI { // BB
+public class GUI {
 
     public mapGUI map;
 //    public Dimension mapSize = new Dimension(500, 500);
