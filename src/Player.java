@@ -113,7 +113,7 @@ public class Player {
                             return false;
                         }
 //                    case "B":
-                    case "F":
+                    case "F"://
                     case "E":
                     case "8":
                     case "K":

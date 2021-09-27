@@ -168,28 +168,17 @@ public class GUI {
 
     public void ActuallyGUI(int movex, int movey, boolean constant) {
         System.out.println(this.frame.getSize());
-
         Main.gui.map.toggleMove(false);
 
-        if (fastmode) {
-            counter = 128;
-        } else {
-            counter = 0;
-        }
+        counter = fastmode?128:0;
         timer = new Timer(1, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent f) {
                 if (counter < 128) {
-                    if (Main.gui.map.curBould != null) {
-                        System.out.println("CUR BOUOLD:  " + Main.gui.map.curBould.mx + Main.gui.map.curBould.my);
-                        Main.gui.map.curBould.mx += movex;
-                        Main.gui.map.curBould.my += movey;
-                        //Main.gui.map.repaint();
-                    } else {
-                        Main.gui.map.x += Main.gui.map.xVelocity * movex;
-                        Main.gui.map.y += Main.gui.map.yVelocity * movey;
-                        // Main.gui.map.repaint();
-                    }
+
+                    Main.gui.map.x += Main.gui.map.xVelocity * movex;
+                    Main.gui.map.y += Main.gui.map.yVelocity * movey;
+
                     Main.gui.scrollToPlayer();
                     Main.gui.map.repaint();
 
@@ -198,16 +187,8 @@ public class GUI {
                     timer.stop();
                     counter = 0;
                     Main.gui.map.toggleMove(true);
-                    if (Main.gui.map.curBould != null) {
-                        // Main.arlofLevels.get(Main.currentLvl).map[Main.person.x+movex*2][Main.person.y+movey*2].dir.replaceAll(".png", "");
-                        Main.arlofLevels.get(Main.currentLvl).map[Main.person.x+movex*2][Main.person.y+movey*2].dir = Main.gui.map.curBould.killable ? Main.cl.getResource("Icons/TileIcon/kBoulderIcon.png").toString().substring(5) : Main.cl.getResource("Icons/TileIcon/BoulderIcon.png").toString().substring(5);
-
-                        Main.gui.map.curBould = null;
-                        Main.gui.map.repaint();
-                    } else {
-                        Main.gui.map.x = Main.person.x * 128;
-                        Main.gui.map.y = Main.person.y * 128;
-                    }
+                    Main.gui.map.x = Main.person.x * 128;
+                    Main.gui.map.y = Main.person.y * 128;
 
                     Main.gui.map.repaint();
                     Main.gui.map.updateMap();
@@ -221,6 +202,33 @@ public class GUI {
         timer.start();
         Main.gui.afterMove();
 
+    }
+    public void moveBould(int movex, int movey) {
+        System.out.println("CUR BOUOLD:  " + Main.gui.map.curBould.mx + Main.gui.map.curBould.my);
+        counter = fastmode ? 128 : 0;
+        timer = new Timer(1, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent f) {
+                if (counter < 128) {
+
+                    Main.gui.map.curBould.mx += movex;
+                    Main.gui.map.curBould.my += movey;
+                    Main.gui.map.repaint();
+                    counter++;
+                } else {
+                    timer.stop();
+                    counter =0;
+                    System.out.println(Main.gui.map.curBould.killable);
+                    Main.arlofLevels.get(Main.currentLvl).map[Main.person.x + movex * 2][Main.person.y + movey * 2].dir = Main.gui.map.curBould.killable ? Main.cl.getResource("Icons/TileIcon/kBoulderIcon.png").toString().substring(5) : Main.cl.getResource("Icons/TileIcon/BoulderIcon.png").toString().substring(5);
+                    Main.gui.map.repaint();
+                    Main.gui.map.curBould = null;
+
+                }
+            }
+        });
+        timer.setCoalesce(true);
+        timer.start();
+        Main.gui.afterMove();
     }
 
     public static void scrollToPlayer() {

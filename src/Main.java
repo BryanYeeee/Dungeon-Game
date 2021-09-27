@@ -134,6 +134,8 @@ public class Main {
         person = new Player(4/* default 1 */, 15000/* default 150 */, 0, 100);
         boss = new Dood();
         currentLvl = 0;// +1
+
+
         arlofLevels = (new LevelList()).arlofLevels;
         arlofPlayerLayer = (new LayPlayer()).arlofPlayerLayer;
 

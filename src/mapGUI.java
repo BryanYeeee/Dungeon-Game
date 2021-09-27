@@ -111,6 +111,7 @@ import java.awt.image.BufferedImage;
       g2D.drawImage(tileImage,y,x,null);
       
       if(curBould != null) {
+
         System.out.println(this.curBould.my+""+this.curBould.mx);
         g2D.drawImage(Main.AutoSize(this.curBould.dir).getImage(),this.curBould.my,this.curBould.mx,null);
       }

@@ -33,11 +33,10 @@ public class Boulder {
         }
         if (!Main.person.boulPush) {
             return false;
-        } else
-            if ((level.map[Main.person.x + movex * 2][Main.person.y + movey * 2].object != null && !(level.map[Main.person.x + movex * 2][Main.person.y + movey * 2].object instanceof Plate))) {
+        } else if ((level.map[Main.person.x + movex * 2][Main.person.y + movey * 2].object != null && !(level.map[Main.person.x + movex * 2][Main.person.y + movey * 2].object instanceof Plate))) {
             return false;
         } else {
-            Main.gui.map.curBould = this;
+
             Main.arlofLevels.get(Main.currentLvl).map[this.x][this.y].dir = ".png";
         }
         return true;
@@ -47,6 +46,8 @@ public class Boulder {
 
         this.x = Main.person.x + movex * 2;
         this.y = Main.person.y + movey * 2;
+        Main.gui.map.curBould = this;
+        Main.gui.moveBould(movex,movey);
         if (level.map[Main.person.x + movex * 2][Main.person.y + movey * 2].object instanceof Plate) {
             this.done = true;
             ((Plate) level.map[Main.person.x + movex * 2][Main.person.y + movey * 2].object).use();
@@ -63,13 +64,16 @@ public class Boulder {
         // return false;
     }
 
-    public void fight(Level level, int movex, int movey) {
-        level.map[this.spawnx][this.spawny] = level.map[Main.person.x + movex][Main.person.y + movey];
-        if (!(this.spawnx == Main.person.x + movex) && !(this.spawny == Main.person.x + movey)) {
-            level.map[this.x + movex][this.y + movey] = new Tile("-  ", "-", new String[1]);
+
+
+
+        public void fight (Level level,int movex, int movey){
+            level.map[this.spawnx][this.spawny] = level.map[Main.person.x + movex][Main.person.y + movey];
+            if (!(this.spawnx == Main.person.x + movex) && !(this.spawny == Main.person.x + movey)) {
+                level.map[this.x + movex][this.y + movey] = new Tile("-  ", "-", new String[1]);
+            }
+            level.map[this.spawnx][this.spawny].symbol = "G";
+            this.x = this.spawnx;
+            this.y = this.spawny;
         }
-        level.map[this.spawnx][this.spawny].symbol = "G";
-        this.x = this.spawnx;
-        this.y = this.spawny;
     }
-}
